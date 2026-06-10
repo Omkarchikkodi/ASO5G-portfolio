@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WMN Portfolio – Omkar Pandit Chikkodi</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-muted: #7a7a7a;
+    --paper: #fafaf8;
+    --paper-alt: #f3f2ef;
+    --rule: #d8d5cf;
+    --accent: #2c5f8a;
+    --accent-light: #e8f0f7;
+    --accent-warm: #8a4a2c;
+    --serif: 'EB Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: #fff;
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  .site-brand {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    opacity: 0.92;
+  }
+
+  nav {
+    display: flex;
+    gap: 0;
+  }
+
+  nav a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0 1rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    cursor: pointer;
+  }
+
+  nav a:hover, nav a.active {
+    color: #fff;
+    border-bottom-color: #c9dff0;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── HERO (Home) ── */
+  .home-hero {
+    background: linear-gradient(160deg, #1a2a3a 0%, #2c4a6a 60%, #1a3050 100%);
+    color: #fff;
+    padding: 7rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .home-hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.4rem;
+    line-height: 1.15;
+  }
+
+  .home-hero .subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #a8c4dc;
+    margin-bottom: 2.5rem;
+  }
+
+  .home-hero p {
+    max-width: 680px;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.82);
+  }
+
+  /* ── CONTENT WRAPPER ── */
+  .content-wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  /* ── SECTION TITLES ── */
+  .page-title {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .page-subtitle {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.55rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 2.5rem 0 0.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin: 1.8rem 0 0.6rem;
+  }
+
+  p { margin-bottom: 1rem; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── HOME PAGE ── */
+  .what-you-find {
+    background: var(--paper-alt);
+    border-left: 3px solid var(--accent);
+    padding: 2rem 2.5rem;
+    margin: 2.5rem 0;
+  }
+
+  .what-you-find h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+
+  /* ── ABOUT PAGE ── */
+  .profile-block {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .profile-text { flex: 1; }
+
+  .profile-image-wrap {
+    flex-shrink: 0;
+    width: 160px;
+  }
+
+  .profile-image-wrap img,
+  .profile-placeholder {
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+  }
+
+  .profile-placeholder {
+    background: var(--paper-alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--ink-muted);
+    font-size: 0.78rem;
+    text-align: center;
+    padding: 1rem;
+    border: 2px dashed var(--rule);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .skill-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 1.4rem 1.6rem;
+  }
+
+  .skill-card h4 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-card p {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* ── LEARNING PAGE ── */
+  .learning-item {
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .learning-item:last-child { border-bottom: none; }
+
+  .learning-item h4 {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ── ASSIGNMENTS PAGE ── */
+  .assignment-list { margin-top: 0.5rem; }
+
+  .assignment {
+    border: 1px solid var(--rule);
+    margin-bottom: 1.5rem;
+    background: #fff;
+  }
+
+  .assignment-header {
+    background: var(--paper-alt);
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--rule);
+    user-select: none;
+  }
+
+  .assignment-header:hover { background: var(--accent-light); }
+
+  .assignment-header h4 {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.2rem;
+  }
+
+  .assignment-header .asgn-name {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--ink);
+    font-weight: 400;
+  }
+
+  .toggle-icon {
+    font-size: 1.2rem;
+    color: var(--ink-muted);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+
+  .assignment.open .toggle-icon { transform: rotate(45deg); }
+
+  .assignment-body {
+    display: none;
+    padding: 1.5rem;
+  }
+
+  .assignment.open .assignment-body { display: block; }
+
+  /* Code blocks */
+  pre, code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.78rem;
+    background: #f0ede8;
+    color: var(--ink);
+  }
+
+  pre {
+    padding: 1rem 1.2rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+    border-left: 3px solid var(--rule);
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  code { padding: 0.1em 0.3em; }
+
+  /* Image placeholders */
+  .img-placeholder {
+    background: var(--paper-alt);
+    border: 2px dashed var(--rule);
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    color: var(--ink-muted);
+    font-size: 0.82rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .img-placeholder .img-label {
+    font-weight: 600;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .img-placeholder .replace-hint {
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .img-placeholder img {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+}
+
+  /* Replace the dashed box with actual image if src attribute is given */
+  .img-slot {
+    margin: 1rem 0;
+  }
+
+  .img-slot img {
+    max-width: 100%;
+    border: 1px solid var(--rule);
+  }
+
+  .img-caption {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-top: 0.4rem;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+  }
+
+  th {
+    background: var(--paper-alt);
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink);
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--rule);
+    text-align: left;
+  }
+
+  td {
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--rule);
+    color: var(--ink-soft);
+  }
+
+  tr:nth-child(even) td { background: var(--paper-alt); }
+
+  /* Lists */
+  ul, ol { padding-left: 1.5rem; margin: 0.6rem 0 1rem; }
+  li { margin-bottom: 0.35rem; color: var(--ink-soft); }
+
+  /* ── COURSE PROJECT ── */
+  .project-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .project-section:last-child { border-bottom: none; }
+
+  .project-section > h2 { margin-top: 0; }
+
+  .objectives-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .objectives-list li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.92rem;
+  }
+
+  .objectives-list li:last-child { border-bottom: none; }
+
+  .objectives-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .arch-diagram-placeholder {
+    background: var(--paper-alt);
+    border: 2px dashed var(--rule);
+    height: 320px;
+    text-align: center;
+    margin: 1.5rem 0;
+    padding: 1rem;
+  }
+
+  .arch-diagram-placeholder img {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+}
+
+  .arch-diagram-placeholder .img-label {
+    font-weight: 600;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+  }
+
+  .arch-diagram-placeholder .replace-hint {
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+
+  .component-tag {
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ── REPORT PAGE ── */
+  .report-banner {
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .report-banner .big-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .report-banner h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  .report-banner p { font-size: 0.9rem; }
+
+  .report-embed-placeholder {
+    background: var(--paper-alt);
+    border: 2px dashed var(--rule);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: var(--ink-muted);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .report-embed-placeholder .replace-hint {
+    font-size: 0.78rem;
+    color: var(--accent);
+    font-style: italic;
+    max-width: 400px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    header { padding: 0 1rem; }
+    .site-brand { display: none; }
+    nav a { padding: 0 0.6rem; font-size: 0.7rem; }
+    .home-hero { padding: 4rem 1.2rem 3.5rem; }
+    .content-wrap { padding: 2.5rem 1.2rem; }
+    .profile-block { flex-direction: column-reverse; }
+    .profile-image-wrap { width: 100%; }
+    .profile-placeholder, .profile-image-wrap img { width: 100%; height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════ HEADER ════════════════ -->
+<header>
+  <span class="site-brand">WMN Portfolio</span>
+  <nav>
+    <a onclick="showPage('home')" class="active" id="nav-home">Home</a>
+    <a onclick="showPage('about')" id="nav-about">About</a>
+    <a onclick="showPage('learning')" id="nav-learning">Learning</a>
+    <a onclick="showPage('assignments')" id="nav-assignments">Assignments</a>
+    <a onclick="showPage('project')" id="nav-project">Course Project</a>
+    <a onclick="showPage('report')" id="nav-report">Report</a>
+  </nav>
+</header>
+
+<!-- ════════════════════════════════════════
+     HOME PAGE
+════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="home-hero">
+    <div class="subtitle">Wireless &amp; Mobile Networks · Portfolio</div>
+    <h1>Wireless Mobile Networks</h1>
+    <p>Welcome to My Portfolio</p>
+    <p>Hello, I am Omkar Pandit Chikkodi, a student exploring the field of Wireless and Mobile Networks (WMN). This portfolio presents the experiments, concepts, and practical work completed as part of the WMN course. Through these experiments, I gained knowledge about wireless communication technologies, mobile networking concepts, routing techniques, and network performance analysis.</p>
+  </div>
+
+  <div class="content-wrap">
+    <div class="what-you-find">
+      <h2>What You'll Find Here</h2>
+      <p>This portfolio contains a collection of laboratory experiments, assignments, and mini activities carried out during the course. It highlights my understanding of topics such as wireless network architecture, mobile communication systems, routing protocols, handoff mechanisms, and network simulation tools.</p>
+      <p>The work included here reflects both theoretical understanding and practical implementation, helping me develop analytical, technical, and problem-solving skills in the domain of wireless and mobile networks.</p>
+    </div>
+
+    <h2>Portfolio Overview</h2>
+    <table>
+      <thead>
+        <tr><th>Section</th><th>Contents</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Assignments</td><td>10 lab experiments covering propagation models, traffic capture, scanning, handover, 5G core, slicing, MEC, and end-to-end communication</td></tr>
+        <tr><td>Course Project</td><td>ASO5G — Adaptive Slice Orchestrator for 5G Networks</td></tr>
+        <tr><td>Learning</td><td>Concepts acquired: wireless standards, routing, handoff, simulation tools</td></tr>
+        <tr><td>Report</td><td>Full course report document</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     ABOUT PAGE
+════════════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="content-wrap">
+    <div class="page-title">About</div>
+    <div class="page-subtitle">Omkar Pandit Chikkodi · KLE Technological University</div>
+
+    <div class="profile-block">
+      <div class="profile-text">
+        <h2 style="margin-top:0;">Profile Overview</h2>
+        <p>I am Omkar Pandit Chikkodi, a 6th-semester Computer Science &amp; Engineering student at KLE Technological University, Hubli. I have a strong interest in Wireless and Mobile Networks, with a focus on understanding modern communication systems, wireless technologies, and mobile networking concepts.</p>
+        <p>Through laboratory experiments and academic activities, I have explored various networking techniques, protocols, and simulation-based analyses to strengthen my practical and technical understanding of wireless communication systems.</p>
+      </div>
+      <div class="profile-image-wrap">
+        <!-- Replace the src below with your actual photo path, e.g. src="omkar.jpg" -->
+        <div class="profile-placeholder">
+          <span style="font-size:2rem;">👤</span>
+          <span class="img-label">Profile Photo</span>
+          <span class="replace-hint">Replace with your image:<br><code>src="your-photo.jpg"</code></span>
+        </div>
+      </div>
+    </div>
+
+    <h2>Skills Overview</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>Wireless Networking</h4>
+        <p>WLAN, Mobile Communication Concepts, Routing Protocols</p>
+      </div>
+      <div class="skill-card">
+        <h4>Networking Concepts</h4>
+        <p>Handoffs, Network Architecture, QoS, Wireless Standards</p>
+      </div>
+      <div class="skill-card">
+        <h4>Tools &amp; Technologies</h4>
+        <p>Cisco Packet Tracer, Network Simulation Tools, Open5GS, UERANSIM, Kubernetes, Wireshark</p>
+      </div>
+      <div class="skill-card">
+        <h4>Technical Areas</h4>
+        <p>Network Performance Analysis, Wireless Communication Systems, 5G Core Architecture</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     LEARNING PAGE
+════════════════════════════════════════ -->
+<div class="page" id="page-learning">
+  <div class="content-wrap">
+    <div class="page-title">Learning</div>
+    <div class="page-subtitle">Technologies, concepts, and skills developed during the course</div>
+
+    <p>As I explore the field of Wireless and Mobile Networks, I have developed a strong understanding of wireless communication concepts, mobile networking technologies, and network architecture. Through laboratory experiments and practical activities, I gained knowledge about wireless standards, routing mechanisms, handoff techniques, and network performance analysis. These experiences helped me understand how modern mobile and wireless communication systems operate in real-world environments.</p>
+
+    <h2 style="margin-top:2rem;">My Learning Journey</h2>
+
+    <div class="learning-item">
+      <h4>Wireless Communication</h4>
+      <p>Understanding the basics of wireless transmission, signal propagation, and communication models — including Free Space, Two-Ray Ground, and Log-Distance propagation. Practical application through MininetWiFi simulations measuring interference and signal strength variation.</p>
+    </div>
+
+    <div class="learning-item">
+      <h4>Mobile Networking Concepts</h4>
+      <p>Learning about cellular networks, handoff mechanisms, mobility management, and mobile communication systems. Hands-on implementation of handover monitoring between access points using background scanning profiles.</p>
+    </div>
+
+    <div class="learning-item">
+      <h4>5G Standalone Core Architecture</h4>
+      <p>Deploying and verifying a full 5G SA core using Open5GS — covering AMF, SMF, UPF, NRF, AUSF, UDM, UDR, and NSSF. Integration with UERANSIM for gNB and UE simulation, PDU session establishment, and network slicing via S-NSSAI profiles.</p>
+    </div>
+
+    <div class="learning-item">
+      <h4>Routing Protocols &amp; Network Architecture</h4>
+      <p>Studying wireless routing techniques, network structures, and communication protocols used in mobile networks, including NGAP/SCTP for control plane and GTP-U for user plane encapsulation across the N2 and N3 interfaces.</p>
+    </div>
+
+    <div class="learning-item">
+      <h4>Network Simulation &amp; Analysis</h4>
+      <p>Using simulation and networking tools — MininetWiFi, UERANSIM, Open5GS, Kubernetes, and Wireshark — to analyze network performance, traffic flow, latency (MEC vs. cloud), and wireless communication behavior across diverse scenarios.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     ASSIGNMENTS PAGE
+════════════════════════════════════════ -->
+<div class="page" id="page-assignments">
+  <div class="content-wrap">
+    <div class="page-title">Assignments</div>
+    <div class="page-subtitle">Laboratory experiments — click any card to expand</div>
+
+    <div class="assignment-list">
+
+      <!-- ── Assignment 1 ── -->
+      <div class="assignment" id="asgn1">
+        <div class="assignment-header" onclick="toggleAssignment('asgn1')">
+          <div>
+            <h4>Assignment 1</h4>
+            <div class="asgn-name">Configure a wireless network simulation using different propagation models and observe their impact on interference, mobility, and link aggregation.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Configure a wireless network simulation using different propagation models (Free Space, Two-Ray Ground, Log-Distance) and observe their impact on interference levels, mobility model behaviour, and link (interface) aggregation performance.</p>
+
+          <h3>Procedure</h3>
+          <ul>
+            <li>Initialize Topology using MininetWiFi.</li>
+            <li>Deploy one static AP and two wireless stations (sta1, sta2).</li>
+            <li>Configure multi-interface bonding on sta1 using Linux bonding driver in Round-Robin mode.</li>
+            <li>Apply linear mobility path to sta2 to simulate movement away from the AP.</li>
+            <li>Sequentially cycle through Free Space, Two-Ray Ground, and Log-Distance propagation models.</li>
+            <li>Capture link signal parameters and aggregated throughput using <code>iw</code> and <code>iperf</code>.</li>
+          </ul>
+
+          <h3>Python Simulation Script</h3>
+          <pre>from mininet.log import setLogLevel, info
+from mn_wifi.net import MininetWiFi
+from mn_wifi.cli import CLI
+from mn_wifi.link import wlan
+from mn_wifi.propagationModels import propagationModel
+import time
+
+def topology():
+    net = MininetWiFi()
+    ap1 = net.addAccessPoint('ap1', ssid='prop-test-ssid', mode='g', channel='1', position='50,50,0')
+    sta1 = net.addStation('sta1', ip='10.0.0.1/24', position='45,45,0')
+    sta2 = net.addStation('sta2', ip='10.0.0.2/24', position='10,50,0')
+    net.configureWifiNodes()
+    net.addLink(sta1, cls=wlan, intf='sta1-wlan1')
+    sta1.cmd('ifconfig sta1-wlan1 10.0.0.11 netmask 255.255.255.0 up')
+    net.build()
+    ap1.start([])
+    # Link Aggregation (Bond0)
+    sta1.cmd('modprobe bonding mode=balance-rr miimon=100')
+    sta1.cmd('ip link add bond0 type bond')
+    sta1.cmd('ip link set sta1-wlan0 master bond0')
+    sta1.cmd('ip link set sta1-wlan1 master bond0')
+    sta1.cmd('ifconfig bond0 10.0.0.100 netmask 255.255.255.0 up')
+    # Mobility
+    sta2.addMobilityModel(time=0, model='Linear', min_x=10, max_x=120, min_y=50, max_y=50)
+    # Propagation models
+    models = ['FreeSpacePropagationModel', 'TwoRayGroundPropagationModel', 'LogDistancePropagationModel']
+    for model_name in models:
+        if model_name == 'FreeSpacePropagationModel':
+            net.setPropagationModel(model=propagationModel, exp=2)
+        elif model_name == 'TwoRayGroundPropagationModel':
+            net.setPropagationModel(model=propagationModel, sL=1, systemLoss=1)
+        elif model_name == 'LogDistancePropagationModel':
+            net.setPropagationModel(model=propagationModel, exp=3.5, sL=1)
+        time.sleep(3)
+        print(sta1.cmd('iw dev sta1-wlan0 link'))
+        print(sta1.cmd('iperf -c 10.0.0.2 -t 2 -i 1'))
+    CLI(net)
+    net.stop()</pre>
+
+          <h3>Outputs</h3>
+
+          <div class="output-image">
+              <div class="img-label">Output – Interference Levels</div>
+              <img src="exp1/interference.png"
+                  alt="Interference Levels Output"
+                  width="800">
+          </div>
+
+          <div class="output-image">
+              <div class="img-label">Output – Link Aggregation</div>
+              <img src="exp1/link_aggregation.png"
+                  alt="Link Aggregation Output"
+                  width="800">
+          </div>
+
+          <div class="output-image">
+              <div class="img-label">Output – Mobility</div>
+              <img src="exp1/mobility.png"
+                  alt="Mobility Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 2 ── -->
+      <div class="assignment" id="asgn2">
+        <div class="assignment-header" onclick="toggleAssignment('asgn2')">
+          <div>
+            <h4>Assignment 2</h4>
+            <div class="asgn-name">Capture and analyze wireless traffic to understand beacon transmission, spectrum usage, and network telemetry metrics.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Capture and analyze wireless traffic to understand beacon transmission, spectrum usage, and network telemetry metrics including RSSI, noise floors, and channel frequencies.</p>
+
+          <h3>Procedure</h3>
+          <ul>
+            <li>Start Traffic Monitor — attach a packet sniffer to the virtual wireless monitor interface (mon0).</li>
+            <li>Isolate Beacon Frames — filter for 802.11 management frames where subtype matches beacon transmissions.</li>
+            <li>Extract Network Telemetry — read signal parameters (RSSI, noise floor, channel frequency) from Radiotap headers.</li>
+            <li>Export Dataset — save sniffed frames into a .pcap file for subsequent analysis.</li>
+          </ul>
+
+          <h3>Python Simulation Script</h3>
+          <pre>from mininet.log import setLogLevel, info
+from mn_wifi.net import MininetWiFi
+from mn_wifi.cli import CLI
+import time, os
+
+def capture_experiment():
+    net = MininetWiFi()
+    ap1 = net.addAccessPoint('ap1', ssid='Telemetry-Test-AP', mode='g', channel='6', position='50,50,0')
+    sta1 = net.addStation('sta1', ip='10.0.0.1/24', position='40,40,0')
+    net.configureWifiNodes()
+    net.build()
+    ap1.start([])
+    os.system('iw dev ap1-wlan0 interface add mon0 type monitor')
+    os.system('ifconfig mon0 up')
+    pcap_file = "wireless_telemetry.pcap"
+    capture_cmd = "tshark -i mon0 -Y 'wlan.fc.type_subtype == 0x08' -c 50 -w {} &".format(pcap_file)
+    os.system(capture_cmd)
+    time.sleep(2)
+    print(sta1.cmd('ping -c 5 10.0.0.1'))
+    time.sleep(8)
+    parse_cmd = "tshark -r {} -T fields -e wlan.ssid -e radiotap.dbm_antsignal -e wlan_radio.frequency | head -n 15".format(pcap_file)
+    os.system(parse_cmd)
+    CLI(net)
+    net.stop()</pre>
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+              <div class="img-label">Output – Beacon Capture</div>
+              <img src="exp2/beacon_capture.png"
+                  alt="Beacon Capture Output"
+                  width="800">
+          </div>
+
+          <div class="output-image">
+              <div class="img-label">Output – Telemetry Metrics</div>
+              <img src="exp2/telemetry_metrics.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 3 ── -->
+      <div class="assignment" id="asgn3">
+        <div class="assignment-header" onclick="toggleAssignment('asgn3')">
+          <div>
+            <h4>Assignment 3</h4>
+            <div class="asgn-name">Configure a wireless client to perform Active and Passive scanning. Measure and compare discovery time, power consumption, and network response.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Configure a wireless client device to perform Active scanning and Passive scanning. Measure and compare discovery time, power consumption, and network response.</p>
+
+          <h3>Procedure</h3>
+          <ul>
+            <li>Initialize topology with one AP and one client station.</li>
+            <li>Configure AP beacon interval at 100ms to anchor the passive discovery window.</li>
+            <li>Execute Active Scanning: broadcast Probe Request frames and time the discovery window.</li>
+            <li>Execute Passive Scanning: listen on each channel for Beacon frames without transmitting.</li>
+            <li>Record and compare discovery times, TX power state, and channel dwell time.</li>
+          </ul>
+
+          <h3>Python Simulation Script</h3>
+          <pre>from mininet.log import setLogLevel, info
+from mn_wifi.net import MininetWiFi
+from mn_wifi.cli import CLI
+import time
+
+def scanning_experiment():
+    net = MininetWiFi()
+    ap1 = net.addAccessPoint('ap1', ssid='Discovery-AP', mode='g', channel='1', position='50,50,0')
+    sta1 = net.addStation('sta1', ip='10.0.0.1/24', position='40,40,0')
+    net.configureWifiNodes()
+    net.build()
+    ap1.start([])
+    time.sleep(2)
+    # Active Scanning
+    start_active = time.time()
+    active_output = sta1.cmd('iw dev sta1-wlan0 scan')
+    active_discovery_time = (time.time() - start_active) * 1000
+    print("Active Scanning Discovery Time: {:.2f} ms".format(active_discovery_time))
+    # Passive Scanning
+    start_passive = time.time()
+    passive_output = sta1.cmd('iw dev sta1-wlan0 scan passive')
+    passive_discovery_time = (time.time() - start_passive) * 1000
+    print("Passive Scanning Discovery Time: {:.2f} ms".format(passive_discovery_time))
+    CLI(net)
+    net.stop()</pre>
+
+          <h3>Comparison Summary</h3>
+          <table>
+            <thead>
+              <tr><th>Metric</th><th>Active Scanning</th><th>Passive Scanning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Frame Types Used</td><td>Probe Request / Response</td><td>Beacon Frames Only</td></tr>
+              <tr><td>TX Power State</td><td>High (Transmitting)</td><td>Zero (Rx Only)</td></tr>
+              <tr><td>Channel Dwell Time</td><td>Short (Variable)</td><td>Fixed (~100–200 ms)</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+              <div class="img-label">Output – Active and Passive scanning/div>
+              <img src="exp3/active_passive.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 4 ── -->
+      <div class="assignment" id="asgn4">
+        <div class="assignment-header" onclick="toggleAssignment('asgn4')">
+          <div>
+            <h4>Assignment 4</h4>
+            <div class="asgn-name">Simulate a mobile node moving between two access points and observe the handover process.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Simulate or configure a mobile node moving between two access points or base stations and observe the handover process, including RSSI variation and AP reassociation.</p>
+
+          <h3>Procedure</h3>
+          <ul>
+            <li>Instantiate Mininet_wifi with wmediumd for realistic link-layer emulation.</li>
+            <li>Deploy two APs with the same SSID over orthogonal channels (1 and 6) and a mobile station with background scanning profile.</li>
+            <li>Apply Log-Distance propagation with exponent 4.5 (dense urban environment).</li>
+            <li>Program a time-bound mobility trajectory from (0,30,0) to (100,30,0) over 22 seconds.</li>
+            <li>Execute handover monitoring loop — polling station link status every 3 seconds to observe RSSI changes and AP reassociation.</li>
+          </ul>
+
+          <h3>Python Simulation Script</h3>
+          <pre>import sys, time
+from mininet.log import info, setLogLevel
+from mn_wifi.cli import CLI
+from mn_wifi.link import wmediumd
+from mn_wifi.net import Mininet_wifi
+
+def handover_monitor(sta, iface='sta1-wlan0', interval=4, duration=24):
+    start_time = time.time()
+    while time.time() - start_time < duration:
+        info('*** Handover status at %.1fs\n' % (time.time() - start_time))
+        info(sta.cmd('iw dev %s link' % iface))
+        time.sleep(interval)
+
+def topology(args):
+    net = Mininet_wifi(link=wmediumd)
+    sta1 = net.addStation('sta1', ip='10.0.0.1/8', position='20,30,0', bgscan="simple:1:-60:5")
+    ap1 = net.addAccessPoint('ap1', ssid='handover-ssid', mode='g', channel='1', position='20,30,0')
+    ap2 = net.addAccessPoint('ap2', ssid='handover-ssid', mode='g', channel='6', position='80,30,0')
+    h1 = net.addHost('h1', ip='10.0.0.10/8')
+    c1 = net.addController('c1')
+    net.setPropagationModel(model='logDistance', exp=4.5)
+    net.configureNodes()
+    s1 = net.addSwitch('s1')
+    net.addLink(ap1, s1); net.addLink(ap2, s1); net.addLink(h1, s1)
+    net.startMobility(time=0)
+    net.mobility(sta1, 'start', time=2, position='0,30,0')
+    net.mobility(sta1, 'stop', time=22, position='100,30,0')
+    net.stopMobility(time=24)
+    net.build()
+    c1.start(); s1.start([c1]); ap1.start([c1]); ap2.start([c1])
+    time.sleep(3)
+    handover_monitor(sta1, interval=3, duration=22)
+    CLI(net)
+    net.stop()</pre>
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+              <div class="img-label">Output – Topology diagram</div>
+              <img src="exp4/topology.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Output – Handover simulation</div>
+              <img src="exp4/handover.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 5 ── -->
+      <div class="assignment" id="asgn5">
+        <div class="assignment-header" onclick="toggleAssignment('asgn5')">
+          <div>
+            <h4>Assignment 5</h4>
+            <div class="asgn-name">Install Open5GS and configure a standalone (SA) 5G Core. Verify AMF, SMF, and UPF are running properly.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Install and configure an Open5GS Standalone (SA) 5G Core Network and verify the successful operation of core network functions including AMF, SMF, and UPF.</p>
+
+          <h3>Setup</h3>
+          <table>
+            <thead><tr><th>Function</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td>NRF</td><td>Network Repository Function</td></tr>
+              <tr><td>AMF</td><td>Access and Mobility Management Function</td></tr>
+              <tr><td>SMF</td><td>Session Management Function</td></tr>
+              <tr><td>UPF</td><td>User Plane Function</td></tr>
+              <tr><td>AUSF</td><td>Authentication Server Function</td></tr>
+              <tr><td>UDM</td><td>Unified Data Management</td></tr>
+              <tr><td>UDR</td><td>Unified Data Repository</td></tr>
+              <tr><td>NSSF</td><td>Network Slice Selection Function</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Key Commands</h3>
+          <pre>systemctl status open5gs-amfd
+systemctl status open5gs-smfd
+systemctl status open5gs-upfd
+ss -tulpn | grep 7777</pre>
+
+          <h3>Observed SBI Endpoints</h3>
+          <pre>127.0.0.4:7777  (SMF)
+127.0.0.5:7777  (AMF)
+127.0.0.10:7777 (NRF)
+127.0.0.11:7777 (AUSF)</pre>
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+              <div class="img-label">Output – amf status</div>
+              <img src="exp5/status_amfd.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Output – smf status</div>
+              <img src="exp5/status_smfd.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Output – upf status</div>
+              <img src="exp5/status_upfd.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Output – grep status</div>
+              <img src="exp5/grep.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 6 ── -->
+      <div class="assignment" id="asgn6">
+        <div class="assignment-header" onclick="toggleAssignment('asgn6')">
+          <div>
+            <h4>Assignment 6</h4>
+            <div class="asgn-name">Integrate a software-based gNB (UERANSIM) with Open5GS and verify NG interface signaling.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Establish communication between a simulated 5G base station (gNB) and the Open5GS AMF through the NG interface (N2) using NGAP signaling over SCTP.</p>
+
+          <h3>Network Configuration</h3>
+          <table>
+            <thead><tr><th>Parameter</th><th>AMF Value</th><th>gNB Value</th></tr></thead>
+            <tbody>
+              <tr><td>MCC</td><td>999</td><td>999</td></tr>
+              <tr><td>MNC</td><td>70</td><td>70</td></tr>
+              <tr><td>TAC</td><td>1</td><td>1</td></tr>
+              <tr><td>IP Address</td><td>127.0.0.5</td><td>127.0.0.1</td></tr>
+              <tr><td>NGAP Port</td><td>38412</td><td>38412</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Launch Command &amp; Expected Output</h3>
+          <pre>cd ~/UERANSIM
+./build/nr-gnb -c config/open5gs-gnb.yaml
+
+# Expected:
+SCTP connection established
+NG Setup Request
+NG Setup Response received
+NG Setup procedure is successful</pre>
+
+          <h3>Observations</h3>
+          <ul>
+            <li>SCTP association between gNB and AMF established successfully.</li>
+            <li>gNB transmitted NG Setup Request; AMF responded with NG Setup Response.</li>
+            <li>AMF accepted gNB connection — number of gNBs is now 1.</li>
+            <li>NG interface signaling completed without errors.</li>
+          </ul>
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+              <div class="img-label">Screenshot 1 – AMF Status</div>
+              <img src="exp6/amf_status.png"
+                alt="Telemetry Metrics Output"
+                width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Screenshot 2 – UERANSIM gNB Startup<</div>
+              <img src="exp6/UERANSIM_gNB_Startup.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Screenshot 3 – AMF Log Verification</div>
+              <img src="exp6/AMF_Log_Verification.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Screenshot 4 – NG Setup Complete</div>
+              <img src="exp6/NG_Setup_Complete.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 7 ── -->
+      <div class="assignment" id="asgn7">
+        <div class="assignment-header" onclick="toggleAssignment('asgn7')">
+          <div>
+            <h4>Assignment 7</h4>
+            <div class="asgn-name">Register a UE and establish a PDU session through Open5GS.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Register a simulated 5G User Equipment (UE) with the Open5GS SA 5G Core and establish a PDU Session for user-plane communication using UERANSIM.</p>
+
+          <h3>Subscriber Configuration</h3>
+          <table>
+            <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td>IMSI</td><td>999700000000001</td></tr>
+              <tr><td>MCC / MNC</td><td>999 / 70</td></tr>
+              <tr><td>APN</td><td>internet</td></tr>
+              <tr><td>Slice SST</td><td>1</td></tr>
+              <tr><td>Assigned IP</td><td>10.45.0.3</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Registration Flow</h3>
+          <pre>UE → gNB → AMF → AUSF → UDM → Authentication
+     ↓
+   SMF → UPF → PDU Session Established
+     ↓
+   uesimtun0 Interface Created (IP: 10.45.0.3)</pre>
+
+          <h3>Test Results</h3>
+          <table>
+            <thead><tr><th>Test Case</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>UE Authentication</td><td>PASS</td></tr>
+              <tr><td>UE Registration</td><td>PASS</td></tr>
+              <tr><td>PDU Session Establishment</td><td>PASS</td></tr>
+              <tr><td>Tunnel Interface Creation</td><td>PASS</td></tr>
+              <tr><td>IP Address Allocation</td><td>PASS</td></tr>
+              <tr><td>End-to-End Attach Procedure</td><td>PASS</td></tr>
+            </tbody>
+          </table>
+
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+              <div class="img-label">Screenshot 1 – UE Registration Accept</div>
+              <img src="exp7/ue_registration_complete.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Screenshot 2 – PDU Session Establishment</div>
+              <img src="exp7/pdu_session.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Screenshot 3 – Tunnel Interface (uesimtun0)</div>
+              <img src="exp7/amf_session.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+              <div class="img-label">Screenshot 4 – IP Address Verification</div>
+              <img src="exp7/ip_verification.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 8 ── -->
+      <div class="assignment" id="asgn8">
+        <div class="assignment-header" onclick="toggleAssignment('asgn8')">
+          <div>
+            <h4>Assignment 8</h4>
+            <div class="asgn-name">Create multiple S-NSSAI profiles and configure slice-based routing.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Configure and validate network slicing in a 5G Standalone Core using Open5GS and UERANSIM by creating multiple S-NSSAI profiles and assigning subscribers to different network slices.</p>
+
+          <h3>Procedure</h3>
+          <ol>
+            <li>Enable NSSF functionality in Open5GS.</li>
+            <li>Configure AMF with multiple S-NSSAI entries: SST=1 SD=010203 and SST=2 SD=112233.</li>
+            <li>Configure NSSF to maintain slice information.</li>
+            <li>Create separate subscriber profiles in MongoDB — one per slice.</li>
+            <li>Create separate UE configuration files requesting different slices.</li>
+            <li>Modify gNB configuration to advertise multiple slices.</li>
+          </ol>
+
+          <h3>Slice Configuration Summary</h3>
+          <table>
+            <thead><tr><th>Slice</th><th>SST</th><th>SD</th><th>Subscriber IMSI</th></tr></thead>
+            <tbody>
+              <tr><td>Slice 1</td><td>1</td><td>010203</td><td>999700000000001</td></tr>
+              <tr><td>Slice 2</td><td>2</td><td>112233</td><td>999700000000002</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Results</h3>
+          <p>The Open5GS core successfully accepted and stored multiple S-NSSAI definitions. Separate subscriber profiles were provisioned and mapped to individual slices. The AMF and NSSF successfully recognized the configured slice information. Multi-slice advertisements from the gNB resulted in a slice compatibility limitation during NG Setup, which is a known interoperability issue between certain Open5GS and UERANSIM configurations. However, the network slicing framework, subscriber provisioning, and slice definitions were successfully implemented and verified.</p>
+        </div>
+      </div>
+
+      <!-- ── Assignment 9 ── -->
+      <div class="assignment" id="asgn9">
+        <div class="assignment-header" onclick="toggleAssignment('asgn9')">
+          <div>
+            <h4>Assignment 9</h4>
+            <div class="asgn-name">Deploy a simple edge application near the UPF and compare latency with cloud-based hosting.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Deploy an edge application (Nginx web server) close to the UPF within the Kubernetes cluster and compare its round-trip latency against cloud-based hosting using the UERANSIM 5G environment.</p>
+
+          <h3>Test Commands</h3>
+          <pre># Cloud baseline ping
+kubectl exec -it ueransim-ue1-84485dcc55-5gdvz -n open5gs -- ping -c 4 -I uesimtun0 8.8.8.8
+
+# Edge server ping
+kubectl exec -it ueransim-ue1-84485dcc55-5gdvz -n open5gs -- ping -c 4 -I uesimtun0 10.244.0.51</pre>
+
+          <h3>Latency Comparison</h3>
+          <table>
+            <thead>
+              <tr><th>Test Type</th><th>Target</th><th>Min RTT</th><th>Avg RTT</th><th>Max RTT</th><th>Packet Loss</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Cloud (Baseline)</strong></td><td>8.8.8.8</td><td>17.255 ms</td><td><strong>32.264 ms</strong></td><td>70.643 ms</td><td>0%</td></tr>
+              <tr><td><strong>Edge (MEC)</strong></td><td>10.244.0.51</td><td>0.718 ms</td><td><strong>0.758 ms</strong></td><td>0.826 ms</td><td>0%</td></tr>
+            </tbody>
+          </table>
+          <p style="margin-top:0.8rem;font-size:0.88rem;"><strong>Result:</strong> MEC reduced average RTT from 32.264 ms to 0.758 ms — a <strong>42.5× latency reduction</strong>.</p>
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+            <div class="img-label">Screenshot 1 – Edge Server Deployment Status</div>
+            <img src="exp9/edge_server.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+            <div class="img-label">Screenshot 2 – Cloud Latency Ping Output</div>
+            <img src="exp9/edge_ping.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+            <div class="img-label">Screenshot 3 – Edge Latency Ping Output</div>
+            <img src="exp9/cloud_ping.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Assignment 10 ── -->
+      <div class="assignment" id="asgn10">
+        <div class="assignment-header" onclick="toggleAssignment('asgn10')">
+          <div>
+            <h4>Assignment 10</h4>
+            <div class="asgn-name">Demonstrate full end-to-end communication from UE → gNB → Core → Internet.</div>
+          </div>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="assignment-body">
+          <h3>Objective</h3>
+          <p>Demonstrate full end-to-end data communication across the 5G Standalone architecture, capture Control Plane signaling and User Plane data traffic, and visualize the protocol stack using Wireshark to verify compliance with 3GPP standards.</p>
+
+          <h3>Protocol Stacks</h3>
+          <table>
+            <thead><tr><th>Plane</th><th>Path</th><th>Protocol Stack</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Control Plane</td>
+                <td>gNodeB ↔ AMF (N2 interface)</td>
+                <td>NGAP over SCTP over IP</td>
+              </tr>
+              <tr>
+                <td>User Plane</td>
+                <td>UE → gNodeB → UPF → Internet (N3/N6)</td>
+                <td>IP/ICMP encapsulated in GTP-U over UDP over IP</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3>Phase A: Control Plane Capture</h3>
+          <pre>kubectl exec -it &lt;AMF-POD&gt; -n open5gs -- tcpdump -i any -w /tmp/amf_capture.pcap
+# Force UE reconnection
+kubectl delete -k ueransim/ueransim-ue -n open5gs
+kubectl apply -k ueransim/ueransim-ue -n open5gs
+kubectl cp open5gs/&lt;AMF-POD&gt;:/tmp/amf_capture.pcap ./amf_capture.pcap
+# Wireshark filter: ngap || sctp</pre>
+
+          <h3>Phase B: User Plane Capture</h3>
+          <pre>kubectl exec -it &lt;UPF1-POD&gt; -n open5gs -- tcpdump -i any -w /tmp/e2e_capture.pcap
+kubectl exec -it &lt;UE-POD&gt; -n open5gs -- ping -c 10 -I uesimtun0 8.8.8.8
+kubectl cp open5gs/&lt;UPF1-POD&gt;:/tmp/e2e_capture.pcap ./e2e_capture.pcap
+# Wireshark filter: udp.port == 2152 (GTP-U)</pre>
+
+          <h3>GTP-U Encapsulation</h3>
+          <ul>
+            <li><strong>Outer Header:</strong> Routing IP addresses of cluster nodes (gNodeB → UPF).</li>
+            <li><strong>Tunnel Header (GTP-U):</strong> Encapsulates user payload; carries TEID assigned during control plane signaling.</li>
+            <li><strong>Inner Header:</strong> UE's assigned IP (source) → 8.8.8.8 (destination).</li>
+          </ul>
+
+          <h3>Outputs</h3>
+          <div class="output-image">
+            <div class="img-label">Figure 1a – AMF Packet Capture Initialization</div>
+            <img src="exp10/amf_terminal_capture_start.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+            <div class="img-label">Figure 1b – UE Reconnection / Registration Trigger</div>
+            <img src="exp10/amf_terminal_capture_restart.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+            <div class="img-label">Figure 2a – Control Plane Wireshark: InitialUEMessage</div>
+            <img src="exp10/control_plane_wireshark_initial_ue.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+            <div class="img-label">Figure 2b – Control Plane Wireshark: PDU Session Resource Setup</div>
+            <img src="exp10/control_plane_wireshark_pdu_setup.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+            <div class="img-label">Figure 3 – UPF Packet Capture &amp; UE Ping to 8.8.8.8</div>
+            <img src="exp10/upf_terminal_capture_start.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+          <div class="output-image">
+            <div class="img-label">Figure 4 – User Plane GTP-U Encapsulation (Wireshark)</div>
+            <img src="exp10/user_plane_wireshark.png"
+                  alt="Telemetry Metrics Output"
+                  width="800">
+          </div>
+        </div>
+      </div>
+
+    </div><!-- .assignment-list -->
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     COURSE PROJECT PAGE
+════════════════════════════════════════ -->
+<div class="page" id="page-project">
+  <div class="content-wrap">
+    <div class="page-title">Course Project</div>
+    <div class="page-subtitle">ASO5G — Adaptive Slice Orchestrator for 5G Networks</div>
+
+    <div class="project-section">
+      <h2>Problem Statement</h2>
+      <p>In modern 5G networks, traffic patterns are highly dynamic due to the increasing number of connected devices and diverse applications. Static network slicing approaches fail to efficiently handle sudden congestion conditions, leading to packet loss, increased latency, degraded throughput, and poor Quality of Service. Most existing systems lack mechanisms for automatic standby slice activation and dynamic traffic redistribution during congestion scenarios. Therefore, there is a need for an intelligent orchestration framework capable of continuously monitoring slice conditions and adaptively managing traffic loads in real time.</p>
+    </div>
+
+    <div class="project-section">
+      <h2>Objectives</h2>
+      <ul class="objectives-list">
+        <li>Design and implement a congestion-aware adaptive slice orchestrator for 5G networks.</li>
+        <li>Deploy multiple 5G network slices using Open5GS and Kubernetes.</li>
+        <li>Continuously monitor slice utilization, active sessions, active UEs, throughput, and latency.</li>
+        <li>Dynamically activate a standby slice during congestion conditions.</li>
+        <li>Perform intelligent traffic migration from overloaded slices to standby slices.</li>
+        <li>Visualize orchestration events and network metrics using a real-time web dashboard.</li>
+        <li>Improve resource utilization and maintain service continuity in 5G infrastructures.</li>
+      </ul>
+    </div>
+
+    <div class="project-section">
+      <h2>Scope of the Activity</h2>
+      <p>The scope of the ASO5G framework focuses on adaptive orchestration and congestion management in 5G core networks. The system is designed for simulated multi-slice 5G environments using Open5GS, Kubernetes, and UERANSIM. The project demonstrates:</p>
+      <ul>
+        <li>Real-time monitoring of multiple network slices.</li>
+        <li>Congestion detection using utilization thresholds.</li>
+        <li>Dynamic standby slice activation.</li>
+        <li>Adaptive traffic redistribution mechanisms.</li>
+        <li>Real-time visualization through a Flask-based dashboard.</li>
+        <li>Kubernetes-based deployment and orchestration of 5G network functions.</li>
+      </ul>
+      <p>The framework can be further extended for AI-driven orchestration, predictive congestion analysis, cloud-native scaling, and production-grade telecom infrastructures.</p>
+    </div>
+
+    <div class="project-section">
+      <h2>Methodology</h2>
+      <p>The ASO5G (Adaptive Slice Orchestrator for 5G Networks) is designed to provide congestion-aware adaptive orchestration in a Kubernetes-based 5G core environment. The framework continuously monitors network slices and dynamically activates a standby slice whenever congestion is detected. Traffic migration is then performed to reduce overload and maintain Quality of Service (QoS). The methodology combines Open5GS, Kubernetes, UERANSIM, Python-based orchestration, and a Flask-based real-time monitoring dashboard.</p>
+    </div>
+
+    <div class="project-section">
+      <h2>Proposed Solution</h2>
+      <p>The ASO5G framework introduces an adaptive orchestration mechanism capable of monitoring real-time slice utilization, detecting congestion based on utilization thresholds, activating standby slices dynamically, redistributing traffic from congested slices, and visualizing orchestration events through a web dashboard.</p>
+      <p>The framework supports the following network slices:</p>
+      <div class="components-grid">
+        <div class="component-tag">eMBB Slice</div>
+        <div class="component-tag">mMTC Slice</div>
+        <div class="component-tag">URLLC Slice</div>
+        <div class="component-tag">Standby Recovery Slice</div>
+      </div>
+      <p>Whenever a slice exceeds the congestion threshold, the orchestrator automatically scales the standby slice using Kubernetes deployments and redirects a percentage of sessions to maintain stability.</p>
+    </div>
+
+    <div class="project-section">
+      <h2>System Architecture</h2>
+      <p>The ASO5G framework consists of the following major components:</p>
+      <div class="components-grid">
+        <div class="component-tag">Open5GS 5G Core Network</div>
+        <div class="component-tag">Kubernetes Cluster</div>
+        <div class="component-tag">UERANSIM UE &amp; gNB Simulator</div>
+        <div class="component-tag">Python-Based Adaptive Orchestrator</div>
+        <div class="component-tag">Flask-Based Monitoring Dashboard</div>
+        <div class="component-tag">Traffic Load Simulator</div>
+      </div>
+      <p>The orchestrator communicates with Kubernetes services to monitor and manage slice states dynamically.</p>
+
+      <div class="arch-diagram-placeholder">
+          <div class="img-label">System Architecture Diagram</div>
+          <img src="images/architecture_diagram.png"
+              alt="ASO5G Framework Architecture Diagram">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     REPORT PAGE
+════════════════════════════════════════ -->
+<div class="page" id="page-report">
+  <div class="content-wrap">
+    <div class="page-title">Report</div>
+    <div class="page-subtitle">Full course report document</div>
+
+    <div class="report-banner">
+      <span class="big-icon">📄</span>
+      <h2>Wireless &amp; Mobile Networks — Course Report</h2>
+      <p>The complete course report covering all experiments, findings, and analysis from the WMN laboratory course.</p>
+    </div>
+
+    <!-- Option A: Embed PDF using <iframe> — replace the src with your actual PDF file path -->
+    <!--
+    <iframe src="your-report.pdf" width="100%" height="700px" style="border:1px solid var(--rule);">
+      <p>Your browser does not support embedded PDFs. <a href="your-report.pdf">Download the PDF</a>.</p>
+    </iframe>
+    -->
+
+    <!-- Option B: Placeholder shown until you embed the PDF -->
+    <iframe
+        src="report/WMN_report.pdf"
+        width="100%"
+        height="900px"
+        style="border:1px solid var(--rule); border-radius:8px;">
+    </iframe>
+
+  </div>
+</div>
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<footer>
+  Omkar Pandit Chikkodi &nbsp;·&nbsp; Wireless &amp; Mobile Networks Portfolio &nbsp;·&nbsp; KLE Technological University
+</footer>
+
+<!-- ════════════════ SCRIPTS ════════════════ -->
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo(0,0);
+  }
+
+  function toggleAssignment(id) {
+    const el = document.getElementById(id);
+    el.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
